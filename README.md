@@ -66,4 +66,15 @@ Una vez entrenado y validado, el modelo RF-DETR (Base) se utiliza para realizar 
 
 # 8. Demostración Visual
 
-# 9. Consideraciones de Hardware y Emulación 
+A continuación, algunas imágenes con resultados.
+
+![corrimientos](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/CORRIMIENTOS_(TEST%20SET).png)
+
+![fallas](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/FALLAS_(TEST%20SET).png)
+
+![manchas](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/MANCHAS_(TEST%20SET).png)
+
+![manchas2](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/MANCHAS_2(TEST%20SET).png)
+
+![video](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/video4.gif)
+
