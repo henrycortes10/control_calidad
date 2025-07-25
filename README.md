@@ -15,10 +15,29 @@ El entrenamiento del modelo RF-DETR se llevó a cabo utilizando un dataset perso
 # 4. Pre-procesamiento y Aumento de Datos
 Para potencias la robustez y capacidad de generalización del modello, se implementó un proceso estratégico de pre-procesamiento y aumento de datos, gestionado a través de Roboflow. Antes de ser utilizadas para el entrenamiento, todas las imágenes del dataset fueron estandarizadas a una resolución uniforme (640x640 pixeles), optimizando la red neuronal.
 
+![PREPROCESSING](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/PREPROCESSING.png)
+
 Adicional, se aplicaron diversas técnicas de aumento de datos para simular variaciones y condiciones de iluminación que el sistema podría encontrar en un entorno de producción real.
 
-# 5. Entrenamiento del Modelo en Roboflow
+![AUGMENTATIONS](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/AUGMENTATIONS.png)
 
+Luego de aplicar estos procesos, o "filtros", aumentaron los datos a 14.254 imágenes.
+
+# 5. Entrenamiento del Modelo en Roboflow
+La fase de entrenamiento del modelo RF-DETR (Base), esencial para su alto rendimiento, se llevó a cabo íntegramente sobre la plataforma de Roboflow. Esta elección fue estratégica y crítica, dada la significativa complejidad computacional del modelo y las limitaciones de recursos (GPU y tiempo de ejecución) encontradas en entornos locales de desarrollo como Google Colab para modelos de esta envergadura. Roboflow proporcionó un entorno optimizado, utilizando hardware potente en la nube (como las GPU NVIDIA A100), lo cual resultó crucial para el entrenamiento eficiente y la convergencia del modelo de deep learning.
+
+El proceso de entrenamiento incluyó los siguientes pasos clave:
+
+-  **Carga y Versión del Dataset:** El dataset personalizado, ya pre-procesado y aumentado, fue subido y versionado en la plataforma Roboflow, asegurando la consistencia de los datos de entrada.
+- **Configuración del Modelo:** Se seleccionó el modelo base RF-DETR (Base) y por defecto los hiperparámetros de entrenamiento (ej., número de épocas, tasa de aprendizaje) según las recomendaciones de Roboflow.
+
+![seleccion](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/seleccion.png)
+
+![base](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/base.png)
+
+- **Ejecución y Monitoreo:** El entrenamiento se inició en los servidores de Roboflow. Se realizó un seguimiento continuo de su progreso a través de las herramientas de visualización integradas en la plataforma, las cuales mostraban en tiempo real las curvas de pérdida (loss) y las métricas de precisión media (mAP) en el conjunto de validación.
+  
+![entrenamiento](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/entrenamiento.jpeg)
 # 6. Evaluación y Métricas de Desempeño
 
 
