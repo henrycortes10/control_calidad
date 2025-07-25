@@ -56,12 +56,14 @@ Una vez entrenado y validado, el modelo RF-DETR (Base) se utiliza para realizar 
 
 - **Captura de Fotogramas:** Un script Python ejecutado en el PC local utiliza la librería OpenCV para capturar continuamente fotogramas desde una cámara web (ej. la cámara digital).
 
+![PYTHON-RFDETR](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/PYTHON-RFDETR_2.png)
+
 - **Envío a la Nube:** Cada fotograma es enviado, vía conexión a Internet, a la API de inferencia de Roboflow. Para este envío, se utilizan credenciales específicas del proyecto y la versión del modelo entrenado.
 
 - **Procesamiento de IA:** En los servidores de Roboflow, el modelo RF-DETR procesa el fotograma recibido, aplicando sus capacidades de detección para generar predicciones (coordenadas de las cajas delimitadoras, etiquetas de clase y puntuaciones de confianza para cada defecto identificado).
 
 - **Recepción y Visualización:** Las predicciones son devueltas al cliente local, donde el script Python las interpreta y las superpone gráficamente sobre el fotograma original, mostrando las detecciones en vivo en la pantalla del PC.
-- 
+
 # 8. Demostración Visual
 
 # 9. Consideraciones de Hardware y Emulación 
