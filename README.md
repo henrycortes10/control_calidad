@@ -64,6 +64,13 @@ Una vez entrenado y validado, el modelo RF-DETR (Base) se utiliza para realizar 
 
 - **Recepción y Visualización:** Las predicciones son devueltas al cliente local, donde el script Python las interpreta y las superpone gráficamente sobre el fotograma original, mostrando las detecciones en vivo en la pantalla del PC.
 
+Librerías necesarias para el correcto funcionamiento del código en Python:
+
+- opencv-python (la versión del opencv debe coincidir con la versión del Python)
+- numpy
+- roboflow
+- inference
+
 # 8. Demostración Visual
 
 A continuación, algunas imágenes con resultados.
