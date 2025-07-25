@@ -38,11 +38,30 @@ El proceso de entrenamiento incluyó los siguientes pasos clave:
 - **Ejecución y Monitoreo:** El entrenamiento se inició en los servidores de Roboflow. Se realizó un seguimiento continuo de su progreso a través de las herramientas de visualización integradas en la plataforma, las cuales mostraban en tiempo real las curvas de pérdida (loss) y las métricas de precisión media (mAP) en el conjunto de validación.
   
 ![entrenamiento](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/entrenamiento.jpeg)
-# 6. Evaluación y Métricas de Desempeño
 
+Al finalizar este proceso, Roboflow generó los archivos de pesos del modelo (.pt), encapsulando el conocimiento adquirido por la IA para la detección precisa de manchas, fallas y corrimientos.
+# 6. Evaluación y Métricas de Desempeño
+Las métricas finales de manera destacada:
+
+- **mA@50:** 81.9%
+- **Precisión:** 81.5%
+- **Recall:** 77.0%
+
+![METRICAS](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/METRICAS.png)
 
 # 7. Inferencia en Video
+Una vez entrenado y validado, el modelo RF-DETR (Base) se utiliza para realizar inferencia de detección de objetos en tiempo real a través de video, aprovechando la API de inferencia de Roboflow. Este enfoque es crucial para la emulación a nivel de laboratorio, ya que permite que el procesamiento computacionalmente intensivo de la inteligencia artificial se ejecute en la potente infraestructura en la nube de Roboflow, mientras que el cliente local gestiona únicamente la adquisición de video y la visualización de los resultados.
 
+**Funcionamiento Conceptual:**
+
+- **Captura de Fotogramas:** Un script Python ejecutado en el PC local utiliza la librería OpenCV para capturar continuamente fotogramas desde una cámara web (ej. la cámara digital).
+
+- **Envío a la Nube:** Cada fotograma es enviado, vía conexión a Internet, a la API de inferencia de Roboflow. Para este envío, se utilizan credenciales específicas del proyecto y la versión del modelo entrenado.
+
+- **Procesamiento de IA:** En los servidores de Roboflow, el modelo RF-DETR procesa el fotograma recibido, aplicando sus capacidades de detección para generar predicciones (coordenadas de las cajas delimitadoras, etiquetas de clase y puntuaciones de confianza para cada defecto identificado).
+
+- **Recepción y Visualización:** Las predicciones son devueltas al cliente local, donde el script Python las interpreta y las superpone gráficamente sobre el fotograma original, mostrando las detecciones en vivo en la pantalla del PC.
+- 
 # 8. Demostración Visual
 
 # 9. Consideraciones de Hardware y Emulación 
