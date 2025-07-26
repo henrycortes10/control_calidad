@@ -8,7 +8,7 @@ El corazón del módulo de inteligencia artificial de este sistema de control de
 # 3. Dataset
 El entrenamiento del modelo RF-DETR se llevó a cabo utilizando un dataset personalizado. Este conjunto de datos incluye imágenes que representar los tres tipos de defectos: manchas (clase ID 0), fallas (clase ID 1) y corrimientos (clase ID 2). 
 ## Imágenes extraídas (3.278)
-*Adjuntar link*
+(https://drive.google.com/drive/folders/1wbYGIQqdGHMmi01kj1-fVAYg0xkz7vcI?usp=sharing)
 ## Imágenes etiquetadas en Roboflow (3.278)
 
 
@@ -28,7 +28,7 @@ La fase de entrenamiento del modelo RF-DETR (Base), esencial para su alto rendim
 
 El proceso de entrenamiento incluyó los siguientes pasos clave:
 
--  **Carga y Versión del Dataset:** El dataset personalizado, ya pre-procesado y aumentado, fue subido y versionado en la plataforma Roboflow, asegurando la consistencia de los datos de entrada.
+- **Carga y Versión del Dataset:** El dataset personalizado, ya pre-procesado y aumentado, fue subido y versionado en la plataforma Roboflow, asegurando la consistencia de los datos de entrada.
 - **Configuración del Modelo:** Se seleccionó el modelo base RF-DETR (Base) y por defecto los hiperparámetros de entrenamiento (ej., número de épocas, tasa de aprendizaje) según las recomendaciones de Roboflow.
 
 ![seleccion](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/seleccion.png)
