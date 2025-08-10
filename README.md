@@ -24,7 +24,7 @@ Adicional, se aplicaron diversas técnicas de aumento de datos para simular vari
 Luego de aplicar estos procesos, o "filtros", aumentaron los datos a 14.254 imágenes.
 
 # 5. Entrenamiento del Modelo en Roboflow
-La fase de entrenamiento del modelo RF-DETR (Base), esencial para su alto rendimiento, se llevó a cabo íntegramente sobre la plataforma de Roboflow. Esta elección fue estratégica y crítica, dada la significativa complejidad computacional del modelo y las limitaciones de recursos (GPU y tiempo de ejecución) encontradas en entornos locales de desarrollo como Google Colab para modelos de esta envergadura. Roboflow proporcionó un entorno optimizado, utilizando hardware potente en la nube (como las GPU NVIDIA A100), lo cual resultó crucial para el entrenamiento eficiente y la convergencia del modelo de deep learning.
+La fase de entrenamiento del modelo YOLOv11 (Large), esencial para su alto rendimiento, se llevó a cabo íntegramente sobre la plataforma de Roboflow. Esta elección fue estratégica y crítica, dada la significativa complejidad computacional del modelo y las limitaciones de recursos (GPU y tiempo de ejecución) encontradas en entornos locales de desarrollo como Google Colab para modelos de esta envergadura. Roboflow proporcionó un entorno optimizado, utilizando hardware potente en la nube (como las GPU NVIDIA A100), lo cual resultó crucial para el entrenamiento eficiente y la convergencia del modelo de deep learning.
 
 El proceso de entrenamiento incluyó los siguientes pasos clave:
 
@@ -43,18 +43,18 @@ Al finalizar este proceso, Roboflow generó los archivos de pesos del modelo (.p
 # 6. Evaluación y Métricas de Desempeño
 Las métricas finales de manera destacada:
 
-- **mA@50:** 81.9%
-- **Precisión:** 81.5%
-- **Recall:** 77.0%
+- **mA@50:** 83.4%
+- **Precisión:** 82.1%
+- **Recall:** 74.6%
 
 ![METRICAS](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/METRICAS.png)
 
 # 7. Inferencia en Video
-Una vez entrenado y validado, el modelo RF-DETR (Base) se utiliza para realizar inferencia de detección de objetos en tiempo real a través de video, aprovechando la API de inferencia de Roboflow. Este enfoque es crucial para la emulación a nivel de laboratorio, ya que permite que el procesamiento computacionalmente intensivo de la inteligencia artificial se ejecute en la potente infraestructura en la nube de Roboflow, mientras que el cliente local gestiona únicamente la adquisición de video y la visualización de los resultados.
+Una vez entrenado y validado, el modelo YOLOv11 (Large) se utiliza para realizar inferencia de detección de objetos en tiempo real a través de video, aprovechando la API de inferencia de Roboflow. Este enfoque es crucial para la emulación a nivel de laboratorio, ya que permite que el procesamiento computacionalmente intensivo de la inteligencia artificial se ejecute en la potente infraestructura en la nube de Roboflow, mientras que el cliente local gestiona únicamente la adquisición de video y la visualización de los resultados.
 
 **Funcionamiento Conceptual:**
 
-- **Captura de Fotogramas:** Un script Python ejecutado en el PC local utiliza la librería OpenCV para capturar continuamente fotogramas desde una cámara web (ej. la cámara digital).
+- **Captura de Fotogramas:** Un script Python ejecutado en la Raspberry Pi 4 utiliza la librería OpenCV para capturar continuamente fotogramas desde una cámara web (ej. la cámara digital).
 
 ![PYTHON-RFDETR](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/PYTHON-RFDETR_2.png)
 
