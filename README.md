@@ -29,15 +29,15 @@ La fase de entrenamiento del modelo YOLOv11 (Large), esencial para su alto rendi
 El proceso de entrenamiento incluyó los siguientes pasos clave:
 
 - **Carga y Versión del Dataset:** El dataset personalizado, ya pre-procesado y aumentado, fue subido y versionado en la plataforma Roboflow, asegurando la consistencia de los datos de entrada.
-- **Configuración del Modelo:** Se seleccionó el modelo base RF-DETR (Base) y por defecto los hiperparámetros de entrenamiento (ej., número de épocas, tasa de aprendizaje) según las recomendaciones de Roboflow.
+- **Configuración del Modelo:** Se seleccionó el modelo base YOLOv11 (Large) y por defecto los hiperparámetros de entrenamiento (ej., número de épocas, tasa de aprendizaje) según las recomendaciones de Roboflow.
 
-![seleccion](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/seleccion.png)
+![seleccion](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/1.png)
 
-![base](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/base.png)
+![base](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/2.png)
 
 - **Ejecución y Monitoreo:** El entrenamiento se inició en los servidores de Roboflow. Se realizó un seguimiento continuo de su progreso a través de las herramientas de visualización integradas en la plataforma, las cuales mostraban en tiempo real las curvas de pérdida (loss) y las métricas de precisión media (mAP) en el conjunto de validación.
   
-![entrenamiento](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/entrenamiento.jpeg)
+![entrenamiento](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/modelo.jpeg)
 
 Al finalizar este proceso, Roboflow generó los archivos de pesos del modelo (.pt), encapsulando el conocimiento adquirido por la IA para la detección precisa de manchas, fallas y corrimientos.
 # 6. Evaluación y Métricas de Desempeño
@@ -47,7 +47,7 @@ Las métricas finales de manera destacada:
 - **Precisión:** 82.1%
 - **Recall:** 74.6%
 
-![METRICAS](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/METRICAS.png)
+![METRICAS](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/3.png)
 
 # 7. Inferencia en Video
 Una vez entrenado y validado, el modelo YOLOv11 (Large) se utiliza para realizar inferencia de detección de objetos en tiempo real a través de video, aprovechando la API de inferencia de Roboflow. Este enfoque es crucial para la emulación a nivel de laboratorio, ya que permite que el procesamiento computacionalmente intensivo de la inteligencia artificial se ejecute en la potente infraestructura en la nube de Roboflow, mientras que el cliente local gestiona únicamente la adquisición de video y la visualización de los resultados.
@@ -56,13 +56,13 @@ Una vez entrenado y validado, el modelo YOLOv11 (Large) se utiliza para realizar
 
 - **Captura de Fotogramas:** Un script Python ejecutado en la Raspberry Pi 4 utiliza la librería OpenCV para capturar continuamente fotogramas desde una cámara web (ej. la cámara digital).
 
-![PYTHON-RFDETR](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/PYTHON-RFDETR_2.png)
+![PYTHON-yolov11](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/CODIGO.png)
 
 - **Envío a la Nube:** Cada fotograma es enviado, vía conexión a Internet, a la API de inferencia de Roboflow. Para este envío, se utilizan credenciales específicas del proyecto y la versión del modelo entrenado.
 
-- **Procesamiento de IA:** En los servidores de Roboflow, el modelo RF-DETR procesa el fotograma recibido, aplicando sus capacidades de detección para generar predicciones (coordenadas de las cajas delimitadoras, etiquetas de clase y puntuaciones de confianza para cada defecto identificado).
+- **Procesamiento de IA:** En los servidores de Roboflow, el modelo YOLOv11 (Large) procesa el fotograma recibido, aplicando sus capacidades de detección para generar predicciones (coordenadas de las cajas delimitadoras, etiquetas de clase y puntuaciones de confianza para cada defecto identificado).
 
-- **Recepción y Visualización:** Las predicciones son devueltas al cliente local, donde el script Python las interpreta y las superpone gráficamente sobre el fotograma original, mostrando las detecciones en vivo en la pantalla del PC.
+- **Recepción y Visualización:** Las predicciones son devueltas al cliente local, donde el script Python las interpreta y las superpone gráficamente sobre el fotograma original, mostrando las detecciones en vivo en el monitor.
 
 Librerías necesarias para el correcto funcionamiento del código en Python:
 
@@ -82,6 +82,7 @@ A continuación, algunas imágenes con resultados.
 ![manchas](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/MANCHAS_(TEST%20SET).png)
 
 ![manchas2](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/MANCHAS_2(TEST%20SET).png)
+![manchas2](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/ejemplo.jpeg)
 
 ![video](https://github.com/henrycortes10/control_calidad/blob/main/imagenes/video4.gif)
 
